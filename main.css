@@ -76,3 +76,8 @@ div.landing_secondary #lndg_item {
       flex: 1 100vh;
     }
   }
+
+
+.scores table {
+    width: 100vh;
+}
