@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 
 <!--
     Title
@@ -8,3 +9,70 @@
     View Scores
     Settings
 -->
+
+<html lang=""en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content=""width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="main.css" />  
+        <link rel="stylesheet" href="landing.css" />  
+        <!-- Include bootstrap CSS framework -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous"
+        /> 
+        <title id="Landing">Pokerun</title>
+    </head>
+    <body class="bg-dark text-white">
+        <header class="container-fluid">
+            <nav class="navbar fixed navbar-dark">
+                <a class="navbar-brand" href="#">Pok&#xE9run</a>
+                <menu class="navbar-nav">
+                    <li class="nav-item">>&nbsp;</li>
+                    <li class="nav-item">Landing</li>
+                </menu>
+            </nav>
+
+            <hr />
+        </header>
+
+        <main class="container-fluid bg-dark text-center">
+            <div class="bg-dark" id="login_box">
+                <div class="login_box">
+                    <h1 class="title"><i>Pok&#xE9Run</i></h1>
+                    <br>
+                    <form method="get" action="play.html">
+                        <!-- label for="name">Name</label-->
+                        <div id="lndg_item">
+                            <input type="text" id="name" placeholder="Username" />
+                            <input type="text" id="name" placeholder="Password" />
+                        </div>
+                        <div id="lndg_item"><button type="submit" class="btn btn-success"><b>Login</b></button></div>
+                    </form>
+                </div>
+                <div id="lndg_item">
+                <p style="margin-bottom: 8px; margin-top: 8px; overflow: hidden; font-size: 14px; color: rgb(151, 181, 151); font-weight: bold;">------------------ OR ------------------</p>
+                </div>
+                <div>
+                    <div class="landing_secondary">
+                        <button type="submit" class="btn btn-success" id="lndg_item">Community Scores</button>
+                        <button type="submit" class="btn btn-success"><b>Play Anonymously</b></button>
+                        <button type="submit" class="btn btn-success" id="lndg_item">Create Account</button>
+                    </div>
+                    <a href="#">account recovery</a></button>
+                </div>
+            </div>
+        </main>
+
+        <hr />
+        <footer class="bg-dark text-light text-muted">
+            <div class="container-fluid">
+                <span class="text-reset">Created by BW</span>
+                <a href="https://github.com/BrtWilson/startup">Github</a>
+            </div>
+        </footer>
+
+    </body> 
+</html>
