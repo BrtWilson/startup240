@@ -81,3 +81,10 @@ div.landing_secondary #lndg_item {
 .scores table {
     width: 100vh;
 }
+
+#pokemon_list {
+    padding: 15px;
+    border-radius: 5%;
+    overflow-y: scroll;
+    min-width: 70vh;
+}
