@@ -65,7 +65,7 @@ Useful Commands
 CSS Points to Know
 - CSS MDN
 - . is used for class-specific rules
-- # is used for id-specific rules
+- \# is used for id-specific rules
 - Animation:
 	* use the rule attribute "animation-name: <animation name>"
 	* define the animation with: "@keyframes <animation name>" rule title and sub-rules defining animation checkpoints. Animation * checkpoint names can be a percentage or "from" and "to" for 0 and 100% respectively.
