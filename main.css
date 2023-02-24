@@ -4,8 +4,17 @@
     border-bottom: solid rgb(0, 182, 91) thin;
 }
 
-menu .nav-item {
+menu li {
     padding: 0 0.3em;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+}
+
+#nav_active {
+    text-decoration: underline;
 }
 
 menu {
