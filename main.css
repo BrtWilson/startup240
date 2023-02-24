@@ -88,3 +88,8 @@ div.landing_secondary #lndg_item {
     overflow-y: scroll;
     min-width: 70vh;
 }
+
+.profile {
+    font-size: large;
+    text-align: left;
+}
