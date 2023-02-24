@@ -20,6 +20,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content=""width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="main.css" />  
+        <link rel="stylesheet" href="play.css" />  
         <!-- Include bootstrap CSS framework -->
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -44,8 +45,23 @@
             <hr />
         </header>
 
-        <main class="container-fluid bg-dark text-center">
-            <!---->
+        <main class="container-fluid bg-light text-center">
+            <div class="play_box">
+                <!--Game to be added soon-->
+                <div class="game_window">
+                    <div class="hp_bar">
+                        <label></label>
+                        <meter id="meter" min="0" max="10" value="10" low="4" high="6" optimum="10"></meter>
+                        <label>HP</label>
+                    </div>
+                    Game Window
+                    <div class="ground"></div>
+                </div>
+                <div class="game_controls">
+                    <div>Jump: Spacebar</div>
+                    <div>Special: Ctrl</div>
+                </div>
+            </div>
         </main>
 
         <hr />
