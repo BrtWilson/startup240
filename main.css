@@ -98,7 +98,7 @@ div.landing_secondary #lndg_item {
     min-width: 70vh;
 }
 
-.profile {
+.profile, .bag {
     font-size: large;
     text-align: left;
 }
