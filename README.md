@@ -72,3 +72,34 @@ CSS Points to Know
 
 General Points to Know
 - If you don't have something allowing a redirection, most html service retrieval mechanisms (browsers) default to looking for an index.html file (a landing or home page).
+
+Javascript
+- Note that a js file can simply have functions called in the html (e.g. by a button's onclick value), or it can have executed code to, in which case, location of the script in the html matters (as this determines when it will render. If it affects elements, it should be placed after them).
+- A good example of storing and loading data in a function:
+'''
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+        scores = JSON.parse(scoresText);
+    }
+'''
+- general useful commands:
+	* "await delay(500)" is equivalent to sleeping for .5 seconds
+	* it is useful to include console.log("message") statements at key points, such as the end of a script to run
+- document commands:
+	* document.querySelector('#<id>') : make an existing element into a javascript element object, where <id> is the elements id
+	* document.createElement('<elementName>') : creates an element, e.g document.createElement('p') creates '<p></p>'
+	* document.querySelectorAll('.<class>') : make an array of elements
+		~ example with function applied to each
+	'''
+		document.querySelectorAll('.game-button').forEach((el, i) => {
+            //...
+        });
+	'''
+- element commands:
+	* <elementObject>.textContent = <>: assigns a value to an element 
+	* <elementObject>.appendChild(<otherElementObject>) : adds an additional child element within the selected element
+	* <elementObject>.innerHTML = '<>' : re/places the children elements with the provided text html content <>.
+- debugging javascript:
+	* You can insert "debugger;" statements in your code, which act as breakpoints, or click on the line in the browser debugger to make that line number a breakpoint
+	* When stopped at a breakpoint, your browser debugger should allow you to look at element contents
