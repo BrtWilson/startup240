@@ -91,7 +91,7 @@ div.landing_secondary #lndg_item {
     width: 100vh;
 }
 
-#pokemon_list {
+#pokemon_list, #bag_items_list {
     padding: 15px;
     border-radius: 5%;
     overflow-y: scroll;

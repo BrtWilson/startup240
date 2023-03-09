@@ -1,0 +1,15 @@
+General:
+Scores - Name, Rank, Distance, Pokemon Used
+
+
+Profile:
+Name
+Rank
+Max Distance
+Top Pokemon Level
+Number of Pokemon
+Pokemon: [
+    
+]
+Items: [] // will be added later
+
