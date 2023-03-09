@@ -103,3 +103,61 @@ Javascript
 - debugging javascript:
 	* You can insert "debugger;" statements in your code, which act as breakpoints, or click on the line in the browser debugger to make that line number a breakpoint
 	* When stopped at a breakpoint, your browser debugger should allow you to look at element contents
+
+Midterm Review Specific Notes:
+To point to another DNS record, use the CNAME dns record type (vs SOA or A)
+TXT dns: meta data
+SOA (start of authority): how to deal with root access
+CNAME: alias
+A: standard record, e.g. literal IP address
+
+div: division
+
+You can use CSS to load fonts from Google
+"@ import statement"
+
+
+A promise does not occur until itis called, begins executing asynchronously when it is called, and you should watch for timeout.
+
+setTimeout(()=> {some function}, 10000); is equivalent to sleep for 10 seconds before the function in the timeout
+
+I it doesn't have double quotes, its not JSON
+
+To include javascript:
+• <script> js content </script>
+• <script src='file.js'/>
+• <div onclick='1+1'/>
+
+/regex/ is used to indicate, as in a regex starts and ends with '/'
+'|' in a regex is or. Capitolization doesnt matter
+
+let b = a.filter(v => v.match(/regex/)); 
+	: makes an array b contianing only elements of a that had some part that matched the regex
+
+let b = a.reduce((a,v) => [a,v].join(':')
+reduce: takes an array and reduces it to one value (combining as a string perhaps)
+map: maps elements of an array to elements in an array according to the function (the new elements are the result of the function on a given function)
+filter: removes or keeps items according to the function
+
+ul: unordered list
+
+Ways to make a variable f equal to a function:
+• function f(x) {}  // std
+• const f = function(x) {} // assign
+• const f = (x) => {} // implicit
+
+Padding puts space around content of elements
+
+Outside going in: margin, border, padding, content
+
+DOM textContent property sets the child text for an element
+
+No curly braces on an implied function means automatic return
+
+Javascript objects use colons, not equal signs
+
+Console Commands:
+sudo: give super user authority
+ssh: connect to
+chmod +x deploy.sh: makes deploy.sh executable
+ls -la: include all entries, including symbolic links and hidden (.)
