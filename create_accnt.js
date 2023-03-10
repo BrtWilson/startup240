@@ -1,16 +1,13 @@
-import { loadStarter } from './pokemon_db.js';
-
-console.log("aglbhjkr");
+import { loadStarter } from './pokemon_db.js'; 
 
 let acf = document.querySelector('#acf');
 acf.addEventListener('submit', createAccount);
 
 function createAccount(event) {  
     event.preventDefault();
-    console.log("FBGKHBHILGRBHUIKLGRbuk;GSRbjk;SGR");
     const nameEl = document.querySelector("#name");
     const passwordEl = document.querySelector("#password");
-    const pkmnPick = document.getElementsByName("pkmn_pick").value;
+    const pkmnPick = document.querySelector('input[name="pkmn_pick"]:checked').value;
 
     let success = createPlayer(nameEl.value, passwordEl.value, pkmnPick);
     if (success) {
