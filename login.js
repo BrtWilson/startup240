@@ -1,19 +1,18 @@
 window.sessionStorage.setItem(loggedIn, "false");
 
-function login() {
+export function login() {
     const nameEl = document.querySelector("#name");
     const passwordEl = document.querySelector("#password");
 
     exitMessage = loadPlayerData(nameEl.value, passwordEl.value);
 
     if (exitMessage === "Success!") {
-        window.location.href = "play.html";
-        window.sessionStorage.setItem(loggedIn, "false");
+        window.sessionStorage.setItem(loggedIn, "true");
+        window.location.href = "home.html";
     }
     else {
-        // Todo: Make into toast or message show later
-        return exitMessage
-    };
+        alert(exitMessage);
+    }
 }
 
 function loadPlayerData(userName_, password_) {
@@ -50,7 +49,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
 
-        playerJ = JSON.stringify(player);
+        const playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else if (userName_ === "mason") {
@@ -82,7 +81,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
           
-        playerJ = JSON.stringify(player);
+        const playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else if (userName_ === "Skully") {
@@ -97,7 +96,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
           
-        playerJ = JSON.stringify(player);
+        const playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else {
@@ -206,6 +205,6 @@ function loadDefaultPokemon() {
     }
 
     return [
-        bulbasaur, charmander, squirtle, ratata, eevee, jigglypuff, dratini, geodude, caterpie, bellsprout, pidgey, 
+        bulbasaur, charmander, squirtle, ratata, eevee, jigglypuff, zubat, dratini, geodude, caterpie, bellsprout, pidgey, 
     ];
 }

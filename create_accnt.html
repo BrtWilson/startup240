@@ -44,12 +44,47 @@
                 <div class="login_box">
                     <h1 class="title"><i>Pok&#xE9Run</i></h1>
                     <br>
-                    <form method="get" action="home.html">
+                    <form id="acf">
                         <!-- label for="name">Name</label-->
                         <div id="lndg_item">
                             <input type="text" id="name" placeholder="Username" />
                             <input type="text" id="password" placeholder="Password" />
                         </div>
+                        <br/>
+                        <div>
+                            <fieldset>
+                                <legend>Choose a starting pokemon:</legend>
+                                    <label for="opt1" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt1" class="hidden" value="Bulbasaur" required/>
+                                        <span class="label"></span>Bulbasaur
+                                    </label>
+                                    <label for="opt2" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt2" class="hidden" value="Charmander"/>
+                                        <span class="label"></span>Charmander
+                                    </label>
+                                    <label for="opt3" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt3" class="hidden" value="Squirtle"/>
+                                        <span class="label"></span>Squirtle
+                                    </label>
+                                    <label for="opt4" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt4" class="hidden" value="Eevee"/>
+                                        <span class="label"></span>Eevee
+                                    </label>
+                                    <label for="opt5" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt5" class="hidden" value="Ratata"/>
+                                        <span class="label"></span>Ratata
+                                    </label>
+                                    <label for="opt6" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt6" class="hidden" value="Jigglypuff"/>
+                                        <span class="label"></span>Jigglypuff
+                                    </label>
+                                    <label for="opt7" class="radio">
+                                        <input type="radio" name="pkmn_pick" id="opt7" class="hidden" value="Caterpie"/>
+                                        <span class="label"></span>Caterpie
+                                    </label>
+                            </fieldset>
+                        </div>
+                        <br/>
                         <div id="lndg_item"><button type="submit" class="btn btn-success"><b>Create Account</b></button></div>
                     </form>
                 </div>
@@ -63,6 +98,8 @@
                 <a href="https://github.com/BrtWilson/startup240">Github</a>
             </div>
         </footer>
+
+        <script type="module" src="create_accnt.js"></script>
 
     </body> 
 </html>

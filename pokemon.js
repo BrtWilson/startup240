@@ -16,7 +16,7 @@ function loadPokemon() {
             const hpTdEl = document.createElement('td');
             const abilityTdEl = document.createElement('td');
 
-            iconTdEl.textContent = pokemon.icon; // todo: make image
+            iconTdEl.textContent = "[ * ]"; //pokemon.icon; // todo: make image
             nameEl.textContent = pokemon.name;
             levelTdEl.textContent = "Lv." + pokemon.lv;
             hpTdEl.textContent = "HP:" + pokemon.hp;

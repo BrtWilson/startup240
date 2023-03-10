@@ -102,3 +102,7 @@ div.landing_secondary #lndg_item {
     font-size: large;
     text-align: left;
 }
+
+.radio {
+    margin-inline: 10px;
+}
