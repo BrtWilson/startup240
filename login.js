@@ -1,5 +1,8 @@
 window.sessionStorage.setItem("loggedIn", "false");
 
+// let lndg_lgn = document.querySelector('#acf');
+// lndg_lgn.addEventListener('submit', createAccount);
+
 function login() {
     const nameEl = document.querySelector("#name");
     const passwordEl = document.querySelector("#password");
@@ -32,6 +35,7 @@ function loadPlayerData(userName_, password_) {
         Pokemon:  * Ratata
         */
         const ratata = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/ratata_AkatsukiDevil.jpg?raw=true',
             name: 'Ratata', 
             lv: 7,
             hp: 5,
@@ -63,6 +67,7 @@ function loadPlayerData(userName_, password_) {
         Pokemon:  * Squirtle
         */  
         const squirtle = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/squirtle_AkatsukiDevil.jpg?raw=true',
             name: 'Squirtle', 
             lv: 6,
             hp: 10,
@@ -109,6 +114,7 @@ function loadPlayerData(userName_, password_) {
 
 function loadDefaultPokemon() {
     const bulbasaur = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/bulbasaur_AkatsukiDevil.png?raw=true',
         name: 'Bulbasaur', 
         lv: 12,
         hp: 19,
@@ -117,6 +123,7 @@ function loadDefaultPokemon() {
         exp: 313,
     }
     const charmander = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/charmander_AkatsukiDevil.png?raw=true',
         name: 'Charmander', 
         lv: 5,
         hp: 10,
@@ -125,6 +132,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }    
     const squirtle = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/squirtle_AkatsukiDevil.jpg?raw=true',
         name: 'squirtle', 
         lv: 5,
         hp: 10,
@@ -133,6 +141,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }
     const ratata = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/ratata_AkatsukiDevil.jpg?raw=true',
         name: 'Ratata', 
         lv: 5,
         hp: 5,
@@ -141,6 +150,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }
     const eevee = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/eevee.jpg?raw=true',
         name: 'Eevee', 
         lv: 9,
         hp: 13,
@@ -149,6 +159,7 @@ function loadDefaultPokemon() {
         exp: 183,
     }
     const jigglypuff = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/jigglypuff_AkatsukiDevil.jpg?raw=true',
         name: 'Jigglypuff', 
         lv: 5,
         hp: 8,
@@ -157,6 +168,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }
     const zubat = {
+        icon: '--',
         name: 'Zubat', 
         lv: 6,
         hp: 7,
@@ -165,6 +177,7 @@ function loadDefaultPokemon() {
         exp: 113,
     }
     const dratini = {
+        icon: '--',
         name: 'Dratini', 
         lv: 15,
         hp: 22,
@@ -173,6 +186,7 @@ function loadDefaultPokemon() {
         exp: 545,
     }
     const geodude = {
+        icon: '--',
         name: 'Geodude', 
         lv: 9,
         hp: 12,
@@ -181,6 +195,7 @@ function loadDefaultPokemon() {
         exp: 240,
     }
     const caterpie = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/caterpie_AkatsukiDevil.jpg?raw=true',
         name: 'Caterpie', 
         lv: 5,
         hp: 5,
@@ -189,6 +204,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }
     const bellsprout = {
+        icon: '--',
         name: 'Bellsprout', 
         lv: 5,
         hp: 10,
@@ -197,6 +213,7 @@ function loadDefaultPokemon() {
         exp: 0,
     }
     const pidgey = {
+        icon: 'https://github.com/BrtWilson/imageBox/blob/main/pidgey_AkatsukiDevil.jpg?raw=true',
         name: 'Pidgey', 
         lv: 5,
         hp: 9,

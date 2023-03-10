@@ -11,12 +11,19 @@ function loadPokemon() {
     if (pokemonArr.length) {
         for (const [i, pokemon] of pokemonArr.entries()) {
             const iconTdEl = document.createElement('td');
+            const iconImgEl = document.createElement('img');
             const nameEl = document.createElement('td');
             const levelTdEl = document.createElement('td');
             const hpTdEl = document.createElement('td');
             const abilityTdEl = document.createElement('td');
 
-            iconTdEl.textContent = "[ * ]"; //pokemon.icon; // todo: make image
+            if (pokemon.icon === '--' || pokemon.icon === undefined) {
+                iconTdEl.textContent = "[ * ]"; 
+            }
+            else {
+                iconImgEl.src = pokemon.icon;
+                iconTdEl.appendChild(iconImgEl);
+            }
             nameEl.textContent = pokemon.name;
             levelTdEl.textContent = "Lv." + pokemon.lv;
             hpTdEl.textContent = "HP:" + pokemon.hp;

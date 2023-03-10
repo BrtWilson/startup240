@@ -2,6 +2,7 @@
 export function loadStarter(name) {
     if (name === "Bulbasaur") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/bulbasaur_AkatsukiDevil.png?raw=true',
             name: name, 
             lv: 5,
             hp: 10,
@@ -13,6 +14,7 @@ export function loadStarter(name) {
     }
     else if (name === "Charmander") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/charmander_AkatsukiDevil.png?raw=true',
             name: name, 
             lv: 5,
             hp: 10,
@@ -24,6 +26,7 @@ export function loadStarter(name) {
     }
     else if (name === "Squirtle") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/squirtle_AkatsukiDevil.jpg?raw=true',
             name: name, 
             lv: 5,
             hp: 10,
@@ -35,6 +38,7 @@ export function loadStarter(name) {
     }
     else if (name === "Eevee") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/eevee.jpg?raw=true',
             name: name, 
             lv: 5,
             hp: 10,
@@ -46,6 +50,7 @@ export function loadStarter(name) {
     }
     else if (name === "Ratata") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/ratata_AkatsukiDevil.jpg?raw=true',
             name: name, 
             lv: 5,
             hp: 10,
@@ -57,6 +62,7 @@ export function loadStarter(name) {
     }
     else if (name === "Jigglypuff") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/jigglypuff_AkatsukiDevil.jpg?raw=true',
             name: name, 
             lv: 5,
             hp: 8,
@@ -68,6 +74,7 @@ export function loadStarter(name) {
     }
     else if (name === "Caterpie") {
         const pkmn = {
+            icon: 'https://github.com/BrtWilson/imageBox/blob/main/caterpie_AkatsukiDevil.jpg?raw=true',
             name: name, 
             lv: 5,
             hp: 5,
