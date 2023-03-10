@@ -1,6 +1,6 @@
 window.sessionStorage.setItem(loggedIn, "false");
 
-export function login() {
+function login() {
     const nameEl = document.querySelector("#name");
     const passwordEl = document.querySelector("#password");
 
@@ -12,6 +12,7 @@ export function login() {
     }
     else {
         alert(exitMessage);
+        return false;
     }
 }
 
@@ -49,7 +50,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
 
-        const playerJ = JSON.stringify(player);
+        let playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else if (userName_ === "mason") {
@@ -81,7 +82,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
           
-        const playerJ = JSON.stringify(player);
+        let playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else if (userName_ === "Skully") {
@@ -96,7 +97,7 @@ function loadPlayerData(userName_, password_) {
             pokemon: pokemon_c,
         };
           
-        const playerJ = JSON.stringify(player);
+        let playerJ = JSON.stringify(player);
         localStorage.setItem("player", playerJ);
     }
     else {

@@ -1,6 +1,6 @@
 // Load player data
 
-function loadPlayerData() {
+export function loadPlayerData() {
     const profileText = localStorage.getItem('player');
     if (profileText) {
         profile = JSON.parse(profileText);
