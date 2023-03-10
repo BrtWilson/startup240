@@ -1,9 +1,14 @@
 // Load player data
 
 export function loadPlayerData() {
+    let profile = undefined;
     const profileText = localStorage.getItem('player');
     if (profileText) {
         profile = JSON.parse(profileText);
+    }
+    else {
+        alert("Error Loading Profile");
+        return;
     }
 
     // Username, Dist and Rank, Top Level Pokemon (TLP), Number of Pokemon (NoP)

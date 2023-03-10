@@ -1,4 +1,4 @@
-window.sessionStorage.setItem(loggedIn, "false");
+window.sessionStorage.setItem("loggedIn", "false");
 
 function login() {
     const nameEl = document.querySelector("#name");
@@ -7,7 +7,7 @@ function login() {
     exitMessage = loadPlayerData(nameEl.value, passwordEl.value);
 
     if (exitMessage === "Success!") {
-        window.sessionStorage.setItem(loggedIn, "true");
+        window.sessionStorage.setItem("loggedIn", "true");
         window.location.href = "home.html";
     }
     else {
