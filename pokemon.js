@@ -1,11 +1,12 @@
 function loadPokemon() {
     let pokemonArr = [];
-    const pokemonArrText = localStorage.getItem('pokemonArr');
-    if (pokemonArrText) {
-        pokemonArr = JSON.parse(pokemonArrText);
+    const playerText = localStorage.getItem('player');
+    if (playerText) {
+        playerObj = JSON.parse(playerText);
+        pokemonArr = playerObj.pokemon;
     }
 
-    const tableBodyEl = document.querySelector('#pokemon_list');
+    const tableBodyEl = document.querySelector('#pokemon_listcontent');
 
     if (pokemonArr.length) {
         for (const [i, pokemon] of pokemonArr.entries()) {
@@ -17,7 +18,7 @@ function loadPokemon() {
 
             iconTdEl.textContent = pokemon.icon; // todo: make image
             nameEl.textContent = pokemon.name;
-            levelTdEl.textContent = "Lv." + pokemon.level;
+            levelTdEl.textContent = "Lv." + pokemon.lv;
             hpTdEl.textContent = "HP:" + pokemon.hp;
             abilityTdEl.textContent = "Ability: " + pokemon.ability;
             
