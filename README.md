@@ -108,6 +108,7 @@ Javascript
 	let acf = document.querySelector('#acf');  		// retrieves element to add listener to (using the form element id in th case)
 	acf.addEventListener('submit', createAccount);	// specifies what action to listen for, and what function to call upon receive
 ```
+- 
 	* This was necessary when hitting the submit button for a form was not working right
 	* Using a listener is apparently a common tool nowadays
 	* The button was specified with type "submit" within the 'form' element
@@ -121,10 +122,11 @@ Javascript
 	* 'sessionStorage' can be used in place of 'localStorage' when data does not need to or must not persist between browser sessions
 	* JSON.stringify(object) returns the JSON string format of an object; used before storing the object
 	* JSON.parse(stringObject) converts a JSON format string to a javascript object, which is returned
-.
-.
-.
-.
+:
+:
+:
+:
+
 Midterm Review Specific Notes:
 To point to another DNS record, use the CNAME dns record type (vs SOA or A)
 TXT dns: meta data
