@@ -76,13 +76,13 @@ General Points to Know
 Javascript
 - Note that a js file can simply have functions called in the html (e.g. by a button's onclick value), or it can have executed code to, in which case, location of the script in the html matters (as this determines when it will render. If it affects elements, it should be placed after them).
 - A good example of storing and loading data in a function:
-'''
+```
     let scores = [];
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
         scores = JSON.parse(scoresText);
     }
-'''
+```
 - general useful commands:
 	* "await delay(500)" is equivalent to sleeping for .5 seconds
 	* it is useful to include console.log("message") statements at key points, such as the end of a script to run
@@ -90,12 +90,12 @@ Javascript
 	* document.querySelector('#<id>') : make an existing element into a javascript element object, where <id> is the elements id
 	* document.createElement('<elementName>') : creates an element, e.g document.createElement('p') creates '<p></p>'
 	* document.querySelectorAll('.<class>') : make an array of elements
-		~ example with function applied to each
-	'''
+		- example with function applied to each
+	```
 		document.querySelectorAll('.game-button').forEach((el, i) => {
             //...
         });
-	'''
+	```
 - element commands:
 	* <elementObject>.textContent = <>: assigns a value to an element 
 	* <elementObject>.appendChild(<otherElementObject>) : adds an additional child element within the selected element
@@ -103,7 +103,28 @@ Javascript
 - debugging javascript:
 	* You can insert "debugger;" statements in your code, which act as breakpoints, or click on the line in the browser debugger to make that line number a breakpoint
 	* When stopped at a breakpoint, your browser debugger should allow you to look at element contents
-
+- Event Listeners Example:
+```
+	let acf = document.querySelector('#acf');  		// retrieves element to add listener to (using the form element id in th case)
+	acf.addEventListener('submit', createAccount);	// specifies what action to listen for, and what function to call upon receive
+```
+	* This was necessary when hitting the submit button for a form was not working right
+	* Using a listener is apparently a common tool nowadays
+	* The button was specified with type "submit" within the 'form' element
+	* The form element was given an id, and all actions and 'onclick' props were removed from the button and form
+- Variable Elements on page load:
+	* by loading a script in an HTML page, the script will be ran on that line. Often the contents of a script are functions, but any code outside of function definitions is ran. This can be used to dynamically perform an action on a page based on given circumstances.
+- "Global" Variables:
+	* each web service has a local storage map or dictionary to contain information, stored in JSON form.
+	* window.localStorage.getItem("itemName") is used to get an item corresponding to the provided string name. This item is returned in JSON form.
+	* window.localStorage.setItem("itemName", "value") is used to store an item name: value pair. The value provided must be in JSON form, or it will be stored as undefined.
+	* 'sessionStorage' can be used in place of 'localStorage' when data does not need to or must not persist between browser sessions
+	* JSON.stringify(object) returns the JSON string format of an object; used before storing the object
+	* JSON.parse(stringObject) converts a JSON format string to a javascript object, which is returned
+.
+.
+.
+.
 Midterm Review Specific Notes:
 To point to another DNS record, use the CNAME dns record type (vs SOA or A)
 TXT dns: meta data
