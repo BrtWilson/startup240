@@ -122,6 +122,29 @@ Javascript
 	* 'sessionStorage' can be used in place of 'localStorage' when data does not need to or must not persist between browser sessions
 	* JSON.stringify(object) returns the JSON string format of an object; used before storing the object
 	* JSON.parse(stringObject) converts a JSON format string to a javascript object, which is returned
+
+Node and Services
+- Setup:
+	* npm init -y: setting up npm in the local work environment; sets up node_modules/, package.json, and package-lock.json
+	* npm install express
+	* npm install <package>
+- Commands:
+	* npm install: installs all packages previously installed by npm for this service, but not locally
+- Middleware Design:
+	* ```app.use(express.static('public'));``` : any requests for a file/ static page, direct to the public folder
+	* ```app.get('/name/:param', (req, res) => { <middleware actions> });``` : any get requests fitting the given name path name, where :param can be anything, execute this middleware. 'param' can be used as a variable in the middleware actions. 
+	Replace 'get' with 'put' for put requests
+	* ```app.use((_req, res) => { <middleware actions> });``` : any requests not caught in previous middleware calls are caught here
+	* middleware actions must end with ```res.send(...);```, which sends the response
+	* ```res.sendFile('index.html', { root: 'public' });``` : sends the index.html (default page) file found in the 'public' folder
+	* ```app.listen(port, () => { <action> });``` : begins listening for calls on the given port, executes the given action now (usually used for logging), and sends any received calls to preceding middleware endpoints defined
+	* ```var apiRouter = express.Router()
+		app.use(`/api`, apiRouter);
+		apiRouter.get('/ex_page', (_req, res) => {
+			res.send(exampleFunction());
+		});```
+		: any requests to folder "/api", use the following middleware; response sends the result of exampleFunction() from /api/ex_page.js
+
 :
 :
 :
