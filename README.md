@@ -72,6 +72,13 @@ CSS Points to Know
 
 General Points to Know
 - If you don't have something allowing a redirection, most html service retrieval mechanisms (browsers) default to looking for an index.html file (a landing or home page).
+- To keep credentials secure:
+	* ssh into your production environment
+	* open the global environment settings file: ```sudo vim /etc/environment```
+	* add credentials: ```export USERC=<yourusercredential>```
+	* save the file and restart the production environment: ```pm2 restart all --update-env; pm2 save```
+	* access your environment var: ```const userName = process.env.USERC;```
+
 
 Javascript
 - Note that a js file can simply have functions called in the html (e.g. by a button's onclick value), or it can have executed code to, in which case, location of the script in the html matters (as this determines when it will render. If it affects elements, it should be placed after them).
@@ -144,6 +151,34 @@ Node and Services
 			res.send(exampleFunction());
 		});```
 		: any requests to folder "/api", use the following middleware; response sends the result of exampleFunction() from /api/ex_page.js
+
+MongoDB Notes
+- Installation: 2 aspects 
+	* (terminal): npm install mongodb
+	* (javascript): const { Mongo Client } = require('mongodb');
+- Creating a document:
+	* ```const coll_name = client.db('rental').collection('house');``` : the collection object allows you to insert and query for documents in the selected collection. If the collection does not yet exist, it is created with 'insertOne(object)' as described below
+	* ```await coll_name_.insertOne(house);``` : 'coll_name_' is the name of the collection, and 'house' is a json javascript object. When an object is inserted, an id is automatically generated.
+- Querying a document:
+	* 'find' is the function for querying in a collection. Note that it is asynchronous, and requires use of 'await' specified actions. E.g.:
+	``` const cursor = coll_name_.find();
+	const rentals = await cursor.toArray();
+	rentals.forEach((i) => console.log(i)); ```
+	* Note that the above case has 'find' empty, and therefore returns all objects in the collection
+	* You can create a query in the form of a dictionary, specifying attributes. This can use regex. E.g.: ``` const query = { property_type: 'Condo', beds: { $lt: 2 } };```
+	* Queries can also specify the way to organize the response by using an options object (in the form of a dictionary), such as 'sort' for ordering, and 'limit' for amount max. E.g. : ```const options = { sort: { price: -1 }, limit: 10, };```
+	* To use these: ```const cursor = collection.find(query, options);```
+	* Example with secure credentials:
+	```const userName = process.env.MONGOUSER;
+	const password = process.env.MONGOPASSWORD;
+	const hostname = process.env.MONGOHOSTNAME;
+
+	async function main() {
+	  // Connect to the database cluster
+	  const url = `mongodb+srv://${userName}:${password}@${hostname}`;
+	  const client = new MongoClient(url);
+	  const collection = client.db('rental').collection('house');```
+
 
 :
 :
