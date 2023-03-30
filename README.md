@@ -45,9 +45,15 @@ Brainstorming ideas:
 
 Section N. Notes Unrelated (HTML & CSS Notes)
 ---------------------------------------------
-Debugging Tips in HTML and other
+Debugging Tips 
+(HTML specifically)
 - If something is missing, check for missing bracketing.
 - If any functionality is not as expected, double check lettering
+(Javascript and Live Web Apps)
+- Press F5 to start debugging in VsCode. Select Node.js if you are debugging a full javascript service. This is useful for debugging the server end
+- Press F12 to start debugger in browser. This is useful for debugging the client end
+- In the browser debugger (client testing), click the "Network" tab > "HTTP message". Here you can view messages sent from the server.
+- After receiving a message, ```socket.send('Msg: e.g. I am listening');``` in the browser debugger console will send a message from the client to the server
 
 Useful Commands
 - ssh -i [key pair (pem) file] ubuntu@[ip address]
@@ -178,6 +184,24 @@ MongoDB Notes
 	  const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 	  const client = new MongoClient(url);
 	  const collection = client.db('rental').collection('house');```
+
+Web Sockets
+- ```const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';``` : used to determine whether secure protocol
+- ```const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);``` : create the socket using the provided protocol
+- ```socket.onmessage = async (event) => {...}``` : do actions when the socket receives a message
+- ```socket.onclose = (event) => {...}``` : detect socket getting closed for any reason (for detection on user end) 
+- ```wss.on('connection', (ws) => {...}``` : detects connections made (this is server end)
+- Connections will close if inactive for too long. To prevent this, pings are sent as follows:
+```  connections.forEach((c) => {
+    // Kill any connection that didn't respond to the ping last time
+    if (!c.alive) {
+      c.ws.terminate();
+    } else {
+      c.alive = false;
+      c.ws.ping();
+    }
+  });```
+
 Misc
 - Returning error responses:
 	* ```res.status(409).send({ msg: 'conflict scenario e.g. username not recognized' });``` 
@@ -193,7 +217,12 @@ Misc
 	  });
 	}```
 	* It is recommended to return (as web call response) the user id (generated upon creation) upon each login
-
+	* Event Listener for keyboard key "Enter":
+	```input.addEventListener('keydown', (e) => {
+	  if (e.key === 'Enter') {
+	    sendMessage();
+	  }
+	});```
 
 
 
