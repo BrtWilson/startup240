@@ -178,6 +178,23 @@ MongoDB Notes
 	  const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 	  const client = new MongoClient(url);
 	  const collection = client.db('rental').collection('house');```
+Misc
+- Returning error responses:
+	* ```res.status(409).send({ msg: 'conflict scenario e.g. username not recognized' });``` 
+- Authorization: 
+	* ```uuid.v4();``` : Generates a unique id; requires import: ```const uuid = require('uuid');```
+	* ```const passwordHash = await bcrypt.hash(password, 10);``` : encrypt a password; requires import: ```const bcrypt = require('bcrypt');```
+	* Store auth-token as a cookie: 
+	``` function setAuthCookie(res, authToken) {
+	  res.cookie('token', authToken, {
+    	secure: true,		// needed to enable security handling
+    	httpOnly: true,		// needed to keep javascript from reading cookie
+    	sameSite: 'strict',	// needed to secure reading only from same domain
+	  });
+	}```
+	* It is recommended to return (as web call response) the user id (generated upon creation) upon each login
+
+
 
 
 :
