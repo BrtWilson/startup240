@@ -191,16 +191,16 @@ Web Sockets
 - ```socket.onmessage = async (event) => {...}``` : do actions when the socket receives a message
 - ```socket.onclose = (event) => {...}``` : detect socket getting closed for any reason (for detection on user end) 
 - ```wss.on('connection', (ws) => {...}``` : detects connections made (this is server end)
-- Connections will close if inactive for too long. To prevent this, pings are sent as follows:
-```  connections.forEach((c) => {
-    // Kill any connection that didn't respond to the ping last time
-    if (!c.alive) {
-      c.ws.terminate();
-    } else {
-      c.alive = false;
-      c.ws.ping();
-    }
-  });```
+- Connections will close if inactive for too long. To prevent this, pings are sent as follows: 
+	```  connections.forEach((c) => {
+    	// Kill any connection that didn't respond to the ping last time
+    	if (!c.alive) {
+    	  c.ws.terminate();
+    	} else {
+    	  c.alive = false;
+    	  c.ws.ping();
+    	}
+	  });```
 
 Misc
 - Returning error responses:
