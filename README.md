@@ -167,23 +167,23 @@ MongoDB Notes
 	* ```await coll_name_.insertOne(house);``` : 'coll_name_' is the name of the collection, and 'house' is a json javascript object. When an object is inserted, an id is automatically generated.
 - Querying a document:
 	* 'find' is the function for querying in a collection. Note that it is asynchronous, and requires use of 'await' specified actions. E.g.:
-	``` const cursor = coll_name_.find();
-	const rentals = await cursor.toArray();
-	rentals.forEach((i) => console.log(i)); ```
+		``` const cursor = coll_name_.find();
+		const rentals = await cursor.toArray();
+		rentals.forEach((i) => console.log(i)); ```
 	* Note that the above case has 'find' empty, and therefore returns all objects in the collection
 	* You can create a query in the form of a dictionary, specifying attributes. This can use regex. E.g.: ``` const query = { property_type: 'Condo', beds: { $lt: 2 } };```
 	* Queries can also specify the way to organize the response by using an options object (in the form of a dictionary), such as 'sort' for ordering, and 'limit' for amount max. E.g. : ```const options = { sort: { price: -1 }, limit: 10, };```
 	* To use these: ```const cursor = collection.find(query, options);```
 	* Example with secure credentials:
-	```const userName = process.env.MONGOUSER;
-	const password = process.env.MONGOPASSWORD;
-	const hostname = process.env.MONGOHOSTNAME;
+		```const userName = process.env.MONGOUSER;
+		const password = process.env.MONGOPASSWORD;
+		const hostname = process.env.MONGOHOSTNAME;
 
-	async function main() {
-	  // Connect to the database cluster
-	  const url = `mongodb+srv://${userName}:${password}@${hostname}`;
-	  const client = new MongoClient(url);
-	  const collection = client.db('rental').collection('house');```
+		async function main() {
+		  // Connect to the database cluster
+		  const url = `mongodb+srv://${userName}:${password}@${hostname}`;
+		  const client = new MongoClient(url);
+		  const collection = client.db('rental').collection('house');```
 
 Web Sockets
 - ```const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';``` : used to determine whether secure protocol
