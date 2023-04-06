@@ -2,7 +2,7 @@ const {MongoClient} = require('mongodb');
 const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 
-const creds = require('creds.js');
+const creds = require('./creds.js');
 
 const userName = creds.getUserName();
 const password = creds.getPassword();
