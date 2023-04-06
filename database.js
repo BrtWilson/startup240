@@ -23,6 +23,10 @@ const client = new MongoClient(url);
 const scoreCollection = client.db('pokerun').collection('score');
 const userCollection = client.db('pokerun').collection('user');
 
+async function checkPassword(pwd_true, pwd_provided) {
+  
+}
+
 async function addUser(userName, password) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 10);
