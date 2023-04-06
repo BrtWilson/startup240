@@ -42,14 +42,14 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('/scores', (_req, res) => {
+apiRouter.get('/scores', async (_req, res) => {
     const scores = await DB.getHighScores();
     res.send(scores);
     //res.send(getScores());
 });
 
 // SubmitScore
-apiRouter.post('/score', (req, res) => {
+apiRouter.post('/score', async (req, res) => {
     DB.addScore(req.body);
     const scores_ = await DB.getHighScores();
     //let scores_ = updateScores(req.body);
@@ -58,7 +58,7 @@ apiRouter.post('/score', (req, res) => {
 
 
 // LoadPlayerData
-apiRouter.get('/:userid', (_req, res) => {
+apiRouter.get('/:userid', async (_req, res) => {
     // get token from cookie
     let token = 0;
 
@@ -68,7 +68,7 @@ apiRouter.get('/:userid', (_req, res) => {
 });
 
 // CreatePlayer
-apiRouter.post('/player/:username', (req, res) => {
+apiRouter.post('/player/:username', async (req, res) => {
     DB.findOne(username);
     const scores_ = await DB.getHighScores();
     //let scores_ = updateScores(req.body);
