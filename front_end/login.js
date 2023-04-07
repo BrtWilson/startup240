@@ -1,19 +1,28 @@
 window.sessionStorage.setItem("loggedIn", "false");
 
 async function login() {
-    loginOrCreate(`/api/auth/login`);
+    let endpnt = `/api/auth/login`;
+    const userName = document.querySelector('#name')?.value;
+    const password = document.querySelector('#password')?.value;
+    let response_set = { userName: userName, password: password };
+
+    loginOrCreate(endpnt, response_set);
 }
 
 async function createUser() {
-    loginOrCreate(`/api/auth/create`);
-}
-
-async function loginOrCreate(endpoint) {
+    let endpnt = `/api/auth/create`;
     const userName = document.querySelector('#name')?.value;
     const password = document.querySelector('#password')?.value;
-    const response = await fetch(endpoint, {
+    const pkmnPick = document.querySelector('input[name="pkmn_pick"]:checked').value;
+    let response_set = { userName: userName, password: password, pokemon: pkmnPick };
+    
+    loginOrCreate(endpnt, response_set);
+}
+
+async function loginOrCreate(endpnt, response_set) {
+    const response = await fetch(endpnt, {
         method: 'post',
-        body: JSON.stringify({ userName: userName, password: password }),
+        body: JSON.stringify(response_set),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
@@ -22,6 +31,7 @@ async function loginOrCreate(endpoint) {
     console.log(userInfoResp);
 
     if (response?.status === 200) {
+        const userName = document.querySelector('#name')?.value;
         localStorage.setItem('userName', userName);
         localStorage.setItem("player", JSON.stringify(userInfoResp));
         window.sessionStorage.setItem("loggedIn", "true");

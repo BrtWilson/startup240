@@ -27,7 +27,7 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (user) {
       if (await DB.pwdCompare(req.body.password, user.password)) {
         setAuthCookie(res, user.token);
-        res.send({ id: user._id });
+        res.send( user ); // TODO: change to return user w/o password
         return;
       }
     }
@@ -39,13 +39,10 @@ apiRouter.post('/auth/create', async (req, res) => {
         res.status(409).send({ msg: 'Username taken' });
     }
     else {
-        const user = await DB.createUser(req.body.username, req.body.password);
-        // const pwdHash = await bcrypt.hash(password, 10);
-        // const user = { username: username, password: pwdHash, token: uuid.v4() };
-        await DB.addUser(user);
+        const user = await DB.createUser(req.body.username, req.body.password, req.body.pokemon);
 
         setAuthCookie(res, user.token);
-        res.send({ id: user._id });
+        res.send( user );
     }
 });
 
@@ -60,6 +57,13 @@ apiRouter.get('/scores', async (_req, res) => {
     const scores = await DB.getHighScores();
     res.send(scores);
     //res.send(getScores());
+});
+
+// GetPokemonDB
+apiRouter.get('/pokemon', async (_req, res) => {
+  const scores = await DB.getPokemonDB();
+  res.send(scores);
+  //res.send(getScores());
 });
 
 // secureApiRouter verifies credentials for endpoints

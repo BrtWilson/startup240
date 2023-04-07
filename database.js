@@ -22,8 +22,9 @@ const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 const client = new MongoClient(url);
 const scoreCollection = client.db('pokerun').collection('score');
 const userCollection = client.db('pokerun').collection('user');
+const pokeCollection = client.db('pokerun').collection('pokemon');
 
-async function addUser(userName, password) {
+async function createUser(userName, password, pkmn) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 13);
 
@@ -31,6 +32,7 @@ async function addUser(userName, password) {
     userName: userName,
     password: passwordHash,
     token: uuid.v4(),
+    pokemon: { pkmn },
   };
   await userCollection.insertOne(user);
 
@@ -39,8 +41,6 @@ async function addUser(userName, password) {
 
 async function pwdCompare(req_pwd, user_pwd) {
   return bcrypt.compare(req_pwd, user_pwd);
-  // const req_pwdHash = await bcrypt.hash(req_pwd, 13);
-  // return req_pwdHash === user_pwd;
 }
 
 function getUser(userName_) {
@@ -56,13 +56,19 @@ function addScore(score) {
 }
 
 function getHighScores() {
-  const query = {score: {$gt: 0}};
+  const query = {dist: {$gt: 0}};
   const options = {
     sort: {score: -1},
     limit: 25,
   };
+  
   const cursor = scoreCollection.find(query, options);
   return cursor.toArray();
 }
 
-module.exports = {addScore, getHighScores, addUser, getUser, getUserByToken, pwdCompare};
+function getPokemonDB() {
+  const cursor = pokeCollection.find(query, options);
+  return cursor.toArray();
+}
+
+module.exports = {addScore, getHighScores, getPokemonDB, createUser, getUser, getUserByToken, pwdCompare};

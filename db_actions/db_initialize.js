@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 //import { creds } from './_db_credentials.js';
-const creds = require('../../creds.js');
+const creds = require('../creds.js');
 // const DB = require('./database.js');
 // import { creds } from './_db_credentials.js';
 
@@ -95,7 +95,7 @@ async function setup () {
             userName: "mason",
             password: "mason",
             id: "42790333",
-            distMax: 116,
+            dist: 116,
             tlp: 5,
             nop: 1,
             pokemon: [squirtle_m],
@@ -104,7 +104,7 @@ async function setup () {
             userName: "wacker",
             password: "wacker",
             id: "77006677",
-            distMax: 436,
+            dist: 436,
             tlp: 5,
             nop: 1,
             pokemon: [ratata_w],
@@ -113,6 +113,7 @@ async function setup () {
             userName: "Skully",
             password: "",
             id: "13013",
+            dist: 609,
             tlp: 15,
             nop: 12,
             pokemon: loadDefaultPokemon(),

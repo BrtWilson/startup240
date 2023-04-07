@@ -21,7 +21,7 @@ async function loadScores() {
             nameBodyEl.textContent = score.name;
             rankTdEl.textContent = score.rank;
             distTdEl.textContent = score.dist;
-            pokemonTdEl.textContent = score.date;
+            pokemonTdEl.textContent = score.pokemon;
             
             const rowEl = document.createElement('tr');
             rowEl.appendChild(positionTdEl);

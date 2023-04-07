@@ -13,13 +13,13 @@ export function loadPlayerData() {
 
     // Username, Dist and Rank, Top Level Pokemon (TLP), Number of Pokemon (NoP)
     const nameEl = document.querySelector('#name');
-    const distEl = document.querySelector('#distMax');
+    const distEl = document.querySelector('#dist');
     const rankEl = document.querySelector('#rank');
     const tlpEl = document.querySelector('#tlp');
     const nopEl = document.querySelector('#nop');
 
     const nameTxt = profile.userName;
-    const distTxt = profile.distMax;
+    const distTxt = profile.dist;
     const tlpTxt = profile.tlp;
     const nopTxt = profile.nop;
 

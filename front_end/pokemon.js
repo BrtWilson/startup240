@@ -1,4 +1,4 @@
-function loadPokemon() {
+async function loadPokemon() {
     let pokemonArr = [];
     const playerText = localStorage.getItem('player');
     if (playerText) {
@@ -8,7 +8,7 @@ function loadPokemon() {
 
     const tableBodyEl = document.querySelector('#pokemon_listcontent');
 
-    if (pokemonArr.length) {
+    if (pokemonArr?.length) {
         for (const [i, pokemon] of pokemonArr.entries()) {
             const iconTdEl = document.createElement('td');
             const iconImgEl = document.createElement('img');
