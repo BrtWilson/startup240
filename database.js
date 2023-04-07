@@ -4,14 +4,14 @@ const bcrypt = require('bcrypt');
 
 const creds = require('./creds.js');
 
-const userName = creds.getUserName();
-const password = creds.getPassword();
-const hostname = creds.getHostname();
+// const userName = creds.getUserName();
+// const password = creds.getPassword();
+// const hostname = creds.getHostname();
 
 // TODO: SWITCH TO env WHEN UPLOADING TO PROD ENV
-// const userName = process.env.MONGOUSER;
-// const password = process.env.MONGOPASSWORD;
-// const hostname = process.env.MONGOHOSTNAME;
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
 
 if (!userName) {
   throw Error('Database not configured. Set environment variables');
