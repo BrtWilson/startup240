@@ -45,10 +45,9 @@
                     <h1 class="title"><i>Pok&#xE9Run</i></h1>
                     <br>
                     <form id="acf">
-                        <!-- label for="name">Name</label-->
                         <div id="lndg_item">
-                            <input type="text" id="name" placeholder="Username" required/>
-                            <input type="text" id="password" placeholder="Password" required/>
+                            <input type="text" id="cname" placeholder="Username" required/>
+                            <input type="password" id="cpassword" placeholder="Password" required/>
                         </div>
                         <br/>
                         <div>
@@ -85,7 +84,7 @@
                             </fieldset>
                         </div>
                         <br/>
-                        <div id="lndg_item"><button type="button" class="btn btn-success"><b>Create Account</b></button></div>
+                        <div id="lndg_item"><button type="button" class="btn btn-success" onclick="createUser()"><b>Create Account</b></button></div>
                     </form>
                 </div>
             </div>
@@ -99,7 +98,7 @@
             </div>
         </footer>
 
-        <script type="module" src="create_accnt.js"></script>
+        <script src="login.js"></script>
 
     </body> 
 </html>

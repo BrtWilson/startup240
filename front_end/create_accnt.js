@@ -1,3 +1,5 @@
+// DEPRECATED
+
 import { loadStarter } from './pokemon_db.js'; 
 
 let acf = document.querySelector('#acf');
@@ -27,7 +29,7 @@ function createPlayer(name_, password_, pkmnPick_) {
     const player = {
         userName: name_,
         password: password_,
-        distMax: 0,
+        dist: 0,
         tlp: 5,
         nop: 1,
         pokemon: [ starterPkmn ],

@@ -27,12 +27,16 @@ const pokeCollection = client.db('pokerun').collection('pokemon');
 async function createUser(userName, password, pkmn) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 13);
+  const starterPkmn = await pokeCollection.findOne({name: pkmn});
 
   const user = {
     userName: userName,
     password: passwordHash,
     token: uuid.v4(),
-    pokemon: { pkmn },
+    dist: 0,
+    tlp: 5,
+    nop: 1,
+    pokemon: [ starterPkmn ],
   };
   await userCollection.insertOne(user);
 

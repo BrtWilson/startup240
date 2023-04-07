@@ -11,8 +11,8 @@ async function login() {
 
 async function createUser() {
     let endpnt = `/api/auth/create`;
-    const userName = document.querySelector('#name')?.value;
-    const password = document.querySelector('#password')?.value;
+    const userName = document.querySelector('#cname')?.value;
+    const password = document.querySelector('#cpassword')?.value;
     const pkmnPick = document.querySelector('input[name="pkmn_pick"]:checked').value;
     let response_set = { userName: userName, password: password, pokemon: pkmnPick };
     

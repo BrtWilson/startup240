@@ -39,7 +39,7 @@ apiRouter.post('/auth/create', async (req, res) => {
         res.status(409).send({ msg: 'Username taken' });
     }
     else {
-        const user = await DB.createUser(req.body.username, req.body.password, req.body.pokemon);
+        const user = await DB.createUser(req.body.userName, req.body.password, req.body.pokemon);
 
         setAuthCookie(res, user.token);
         res.send( user );
