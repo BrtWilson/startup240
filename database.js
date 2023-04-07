@@ -23,13 +23,9 @@ const client = new MongoClient(url);
 const scoreCollection = client.db('pokerun').collection('score');
 const userCollection = client.db('pokerun').collection('user');
 
-async function checkPassword(pwd_true, pwd_provided) {
-  
-}
-
 async function addUser(userName, password) {
   // Hash the password before we insert it into the database
-  const passwordHash = await bcrypt.hash(password, 10);
+  const passwordHash = await bcrypt.hash(password, 13);
 
   const user = {
     userName: userName,
@@ -41,8 +37,14 @@ async function addUser(userName, password) {
   return user;
 }
 
-function getUser(email) {
-  return userCollection.findOne({ email: email });
+async function pwdCompare(req_pwd, user_pwd) {
+  return bcrypt.compare(req_pwd, user_pwd);
+  // const req_pwdHash = await bcrypt.hash(req_pwd, 13);
+  // return req_pwdHash === user_pwd;
+}
+
+function getUser(userName_) {
+  return userCollection.findOne({ userName: userName_ });
 }
 
 function getUserByToken(token) {
@@ -57,10 +59,10 @@ function getHighScores() {
   const query = {score: {$gt: 0}};
   const options = {
     sort: {score: -1},
-    limit: 15,
+    limit: 25,
   };
   const cursor = scoreCollection.find(query, options);
   return cursor.toArray();
 }
 
-module.exports = {addScore, getHighScores, addUser, getUser, getUserByToken};
+module.exports = {addScore, getHighScores, addUser, getUser, getUserByToken, pwdCompare};

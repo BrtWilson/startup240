@@ -19,14 +19,15 @@ async function loginOrCreate(endpoint) {
         },
     });
     const userInfoResp = await response.json();
-  
+    console.log(userInfoResp);
+
     if (response?.status === 200) {
         localStorage.setItem('userName', userName);
         localStorage.setItem("player", JSON.stringify(userInfoResp));
         window.sessionStorage.setItem("loggedIn", "true");
         window.location.href = "home.html";
     } else {
-        alert(`⚠ Error: ${body.msg}`);
+        alert(`⚠ Error: ${userInfoResp.msg}`);
     }
 }
 
