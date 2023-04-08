@@ -1,13 +1,10 @@
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
-//import { creds } from './_db_credentials.js';
-const creds = require('../creds.js');
 // const DB = require('./database.js');
-// import { creds } from './_db_credentials.js';
 
-const userName = creds.getUserName();
-const password = creds.getPassword();
-const hostname = creds.getHostname();
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
 
 const uri = `mongodb+srv://${userName}:${password}@${hostname}`;
 
