@@ -224,6 +224,37 @@ Misc
 	  }
 	});```
 
+React General
+- Setting up React involves three categories (and corresponding folders):
+	* Back-end: the files previously in top-level of the service dir will be moved into a file, perhaps called 'src'
+	* Front-end: the front-end files previously in their own folder (commonly called 'public') will all be replaced with React code setup. Much of the old file content will be copied over (typically an 'old-public' - new 'public' directory pairing method, where 'old-public' is deleted after the new files are finished)
+	* React overhead: some files for React setup will be in the top-level dir of the service. This is easiest done by creating a template project using ```npx create-react-app template-react```, moving the template files into the top-level directory (excluding generic files, such as images, and the npm packages), then deleting the template project. 'js' files should be renamed with a 'jsx' extension. Update ```manifest.json``` and ```index.html```.
+	* -> Run "npm install" in the back-end and React overhead directories after the corresponding files have been moved to their new destination
+- Some widgets benefit from the React version of bootstrap, such as Button or Modal. Use ```npm install bootstrap react-bootstrap``` and ```import 'bootstrap/dist/css/bootstrap.min.css';``` to install and import.
+- Each jsx file will start with ```import React from 'react';```
+- _App.jsx_ will be the parent of all components making up a web app. It will be in the top level of the src directory. This is also where the header and footer reside.
+- _React Components:_ Essentially a javascript function that returns an html segment. The name of the function becomes the name of the html unit
+	* The body of a component will have any functions it uses.
+	* State can also be stored. Each variable uses a line setting up the var and the way to change it:
+	```const [varName, setVarName] = React.useState(defaultValue);```
+- _Router:_ found in index.jsx and app.jsx files
+	* ```npm install react-router-dom```
+	* ```// index.jsx inclusion:
+	const root = ReactDOM.createRoot(document.getElementById('root'));
+	root.render(
+	  <BrowserRouter>
+	    <App />
+	  </BrowserRouter>
+	);```
+	* In navigation, replace `a` and `href` with `NavLink` and `to` respectively
+	* Router example:
+	```<Routes>
+		<Route path='/' element={<Login />} exact />
+		<Route path='/play' element={<Play />} />
+		<Route path='/about' element={<About />} />
+		<Route path='*' element={<NotFound />} />
+	</Routes>```
+
 
 
 :
