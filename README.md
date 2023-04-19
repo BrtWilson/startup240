@@ -257,12 +257,9 @@ React General
 
 
 
-:
-:
-:
-:
+:}: --=-=-- --==============================================================-- --=-=-- :{:
 
-Midterm Review Specific Notes:
+_Midterm Review Specific Notes:_
 To point to another DNS record, use the CNAME dns record type (vs SOA or A)
 TXT dns: meta data
 SOA (start of authority): how to deal with root access
@@ -319,3 +316,82 @@ sudo: give super user authority
 ssh: connect to
 chmod +x deploy.sh: makes deploy.sh executable
 ls -la: include all entries, including symbolic links and hidden (.)
+
+:}: --=-=-- --==============================================================-- --=-=-- :{:
+
+_Final Specific Notes_
+
+Initial/more general notes:
+- Cookies are: For the server to store data on the client
+- What is the value of WebSocket for HTTP: It is peer-to-peer instead of client-to-server
+- Note that regex expressions are case-sensitive by default (and there is some option, perhaps '-i', that triggers case-sensitivity)
+
+HTTP Standard Header examples: 
+- Host
+- Cookie
+- Content-Type
+- NOTE: Language is not a standard header type
+You can use fetch in both back and front-end code, but note:
+- Usually fetch is only used in back-end code when calling another server
+Purposes of JSX:
+- To combine Javascript and HTML (Note: CSS _not_ included)
+- To inject HTML into your Javascript
+- To componentize and allow for composability of your HTML
+Middle ware notes:
+- Middleware matching is evaluated top-to-bottom, starting with the first match
+- It proceeds to the next matching middleware if '.next' is called
+- ```app.use``` applies to all calls, independent of method
+- Subsequent matches are dependent on method (e.g. PUT -> ```app.put(...)```)
+- Matching is determined by the content of the call:
+	e.g. ```apiRouter.post('/auth/login', async (req, res) => {...}```
+	where "/auth/login" is the content. This can include regex or identifiers indicated by ':'.
+- A middleware handler must have an active function with either '.next' or ```res.send()```, 
+  specifically the response send on the final matching middleware, or the fetch call will hang indefinitely
+A Linux daemon:
+- Can fork other calls 
+- Executes independent of a user (no user involved, it just runs)
+- Starts upon computer reboot
+- e.g. PM2
+Standard Ports:
+- 80:  HTTP
+- 443: HTTPS
+- 22:  SSH
+- 223: FTP
+HTTP status codes:
+- 100s: informational
+- 200s: success
+- 300s: content redirects or caching
+- 400s: client errors
+- 500s: server errors
+```NPM install <package>```:
+- Adds a dependency to your package.json
+- Adds source code to the node_modules directory
+- Locks the versionof the package to your application (which can be manually modified, often done so to change to a range)
+```NPM install``` (by istelf) installs all packages previously installed (noted in the package.json file)
+
+
+JSX Coding example: 
+	```
+	const B = () => <b>burger</b>;
+	const C = () => <b>fish</b>;
+	const D = () => <b>taco</b>;
+	const A = () => {
+		const [v, updateV] = React.useState(false);
+		const [x, updateX] = React.useState(B);
+
+		let o = <C />; // o is C initially if !v; otherwise is B
+		if (v) { o = <B />; }
+
+		// This line occurs once initially
+		React.useEffect(() => 
+							updateX(D), 	// effect taken
+							[v]				// dependencies array that also trigger effect
+						);
+
+		return (
+			<p onClick={() => updateV(true)}>{x}{o}</p>
+		);
+		  // Note the onClick part only matters when it is clicked; in this case, it would re-trigger the useEffect line
+	};
+	```
+	Component A will initially display 'tacofish'
