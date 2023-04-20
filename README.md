@@ -331,12 +331,15 @@ HTTP Standard Header examples:
 - Cookie
 - Content-Type
 - NOTE: Language is not a standard header type
+
 You can use fetch in both back and front-end code, but note:
 - Usually fetch is only used in back-end code when calling another server
+
 Purposes of JSX:
 - To combine Javascript and HTML (Note: CSS _not_ included)
 - To inject HTML into your Javascript
 - To componentize and allow for composability of your HTML
+
 Middle ware notes:
 - Middleware matching is evaluated top-to-bottom, starting with the first match
 - It proceeds to the next matching middleware if '.next' is called
@@ -347,16 +350,19 @@ Middle ware notes:
 	where "/auth/login" is the content. This can include regex or identifiers indicated by ':'.
 - A middleware handler must have an active function with either '.next' or ```res.send()```, 
   specifically the response send on the final matching middleware, or the fetch call will hang indefinitely
+
 A Linux daemon:
 - Can fork other calls 
 - Executes independent of a user (no user involved, it just runs)
 - Starts upon computer reboot
 - e.g. PM2
+
 Standard Ports:
 - 80:  HTTP
 - 443: HTTPS
 - 22:  SSH
 - 223: FTP
+
 HTTP status codes:
 - 100s: informational
 - 200s: success
@@ -368,7 +374,6 @@ HTTP status codes:
 - Adds source code to the node_modules directory
 - Locks the versionof the package to your application (which can be manually modified, often done so to change to a range)
 ```NPM install``` (by istelf) installs all packages previously installed (noted in the package.json file)
-
 
 JSX Coding example: 
 	```
